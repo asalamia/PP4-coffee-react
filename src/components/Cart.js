@@ -16,10 +16,13 @@ const Cart = () => {
     const updatedCart = storedCart.map(item => ({
       ...item,
       quantity: item.quantity >= 1 ? item.quantity : 1,
+      
     }));
     setCart(updatedCart); // Update the cart state
     const total = calculateTotalPrice(updatedCart); // Calculate the total price
     setTotalPrice(total); // Update the total price state
+
+    localStorage.setItem("cart", JSON.stringify(updatedCart)); 
   }, []);
 
   // Function to calculate the total price of items in the cart
@@ -106,7 +109,7 @@ const Cart = () => {
       </table>
       <h2 className="text-center mt-4">Total: ₱{totalPrice.toFixed(2)}</h2>
       <div className="text-center mt-4">
-        <Link to="/login" className="btn btn-secondary mx-2">
+        <Link to="/dashboard" className="btn btn-secondary mx-2">
           Proceed to Checkout
         </Link>
       </div>

@@ -68,6 +68,7 @@ const Checkout = ({ user }) => {
 
       // Alert and redirect after successful order placement
       alert('Order placed successfully!');
+      window.location.replace('/products');
     } else {
       // Alert user to complete all required fields before placing order
       alert('Complete all required fields before placing order.');

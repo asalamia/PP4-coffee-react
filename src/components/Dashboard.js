@@ -6,7 +6,7 @@ const Dashboard = () => {
   // Retrieve the user data passed via the state from the Register component
   const location = useLocation();
   const navigate = useNavigate();
-  const { user } = location.state || { user: {} }; // Default to an empty object if state is undefined
+const { user } = location.state || { user: {} }; // Default to an empty object if state is
 
   // Retrieve cart items from localStorage or initialize as empty array
   const [cart] = useState(JSON.parse(localStorage.getItem('cart')) || []);
@@ -51,6 +51,7 @@ const Dashboard = () => {
                     <span>{item.name} (x{item.quantity})</span>
                     {/* Display total price for each item */}
                     <span>₱ {(item.price * item.quantity).toFixed(2)}</span>
+                   
                   </div>
                 ))}
                 {/* Horizontal line for separation */}

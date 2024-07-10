@@ -28,15 +28,18 @@ const ProductList = () => {
       <h1 className="text-center pt-4 mb-4">Product List</h1>
       <div className="row">
         {products.map(product => (
-          <div className="col-md-4 mb-4" key={product.id}>
-            <div className="card h-100">
+          <div className="col-md-4 mb-4 p-4" key={product.id}>
+            <div className="card h-100 p-4">
               <img src={product.image_url} className="card-img-top" alt={product.name} />
               <div className="card-body">
                 <h5 className="card-title">{product.name}</h5>
                 <p className="card-text">{product.description}</p>
                 <p className="card-text">Price: ₱ {product.price || 'n/a'}</p>
                 {/* Button to add the product to cart */}
-                <button className="btn btn-primary w-100" onClick={() => {
+                
+              </div>
+              <div className='card-footer'>
+              <button className="btn btn-primary w-100" onClick={() => {
                   const cart = JSON.parse(localStorage.getItem('cart')) || []; // Retrieve cart from localStorage or initialize as empty array
                   const updatedCart = [...cart, product]; // Add current product to cart
                   localStorage.setItem('cart', JSON.stringify(updatedCart)); // Update cart in localStorage
